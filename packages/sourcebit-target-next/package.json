@@ -1,0 +1,58 @@
+{
+    "name": "sourcebit-target-next",
+    "version": "0.0.0",
+    "description": "A Sourcebit target plugin for Next.js",
+    "main": "index.js",
+    "scripts": {
+        "version-minor": "npm version minor -m \"bumped version to v%s\"",
+        "version-patch": "npm version patch -m \"bumped version to v%s\"",
+        "test": "yarn format",
+        "format": "prettier --write \"./**/*.{js,jsx,md,html}\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stackbithq/sourcebit-target-next.git"
+    },
+    "keywords": [
+        "headless",
+        "headless-cms",
+        "jamstack",
+        "ssg",
+        "nextjs"
+    ],
+    "author": "Stackbit",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/stackbithq/sourcebit-target-next/issues"
+    },
+    "homepage": "https://github.com/stackbithq/sourcebit-target-next#readme",
+    "dependencies": {
+        "@sindresorhus/slugify": "^1.0.0",
+        "fs-extra": "^10.0.0",
+        "lodash": "^4.17.21",
+        "socket.io": "^4.1.2",
+        "socket.io-client": "^4.1.2"
+    },
+    "peerDependencies": {
+        "next": ">=10",
+        "react": ">=16"
+    },
+    "devDependencies": {
+        "@stackbit/prettier-config": "^1.0.0",
+        "husky": "^6.0.0",
+        "lint-staged": "^11.0.0",
+        "prettier": "^2.3.0"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,jsx,md,html}": [
+            "yarn format",
+            "git add"
+        ]
+    },
+    "prettier": "@stackbit/prettier-config"
+}

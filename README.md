@@ -14,10 +14,10 @@ Then change into `[project-name]` directory (default: `my-stackbit-site`) and st
 
 ```txt
 cd [project-name]
-npm run dev
+yarn dev
 
 # in a separate tab/window
-npm run stackbit-dev
+yarn stackbit-dev
 ```
 
 ## Learn the Basics
