@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import DynamicPage, { getStaticProps } from '../pages/[[...slug]]';
+import { DynamicPage, getStaticProps } from '../pages/[[...slug]]';
 
 it('renders homepage without crashing', async () => {
     const { props } = await getStaticProps({ params: { slug: '/' } });

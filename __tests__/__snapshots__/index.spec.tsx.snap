@@ -4,12 +4,14 @@ exports[`renders homepage without crashing 1`] = `
 <div>
   <div
     class="container"
+    data-sb-object-id="125BNkMzYBM2rb7gT9Pfkf"
   >
     <main
       class="main"
     >
       <h1
         class="title"
+        data-sb-field-path="title"
       >
         Stackbit Next.js Starter
       </h1>
