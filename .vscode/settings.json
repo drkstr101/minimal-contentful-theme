@@ -1,3 +1,5 @@
 {
-  "jest.jestCommandLine": "yarn jest"
+    "jest.jestCommandLine": "yarn jest",
+    "cSpell.words": ["contentful", "stackbit", "sourcebit"],
+    "typescript.tsdk": "node_modules/typescript/lib"
 }

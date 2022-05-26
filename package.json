@@ -1,26 +1,64 @@
 {
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "test": "jest --watch",
-    "test:ci": "jest --ci"
-  },
-  "dependencies": {
-    "next": "latest",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.2.0",
-    "@testing-library/user-event": "^14.2.0",
-    "@types/react": "^18.0.9",
-    "eslint": "^8.16.0",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^28.1.0",
-    "jest-environment-jsdom": "^28.1.0",
-    "typescript": "^4.6.4"
-  }
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "format": "prettier --write .",
+        "test": "jest --watch",
+        "test:ci": "jest --ci",
+        "contentful:import": "node ./contentful/import.js",
+        "contentful:export": "node ./contentful/export.js"
+    },
+    "dependencies": {
+        "@stackbit/annotations": "^0.1.2",
+        "next": "latest",
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0",
+        "sourcebit": "^0.11.1",
+        "sourcebit-source-contentful": "^0.6.8",
+        "sourcebit-target-next": "^0.8.2"
+    },
+    "devDependencies": {
+        "@contentful/rich-text-types": "^15.12.1",
+        "@stackbit/cli": "^0.2.21",
+        "@stackbit/cms-contentful": "^0.0.17",
+        "@stackbit/prettier-config": "^1.0.0",
+        "@testing-library/jest-dom": "^5.16.4",
+        "@testing-library/react": "^13.2.0",
+        "@testing-library/user-event": "^14.2.0",
+        "@types/react": "^18.0.9",
+        "contentful-export": "^7.17.7",
+        "contentful-import": "^8.3.0",
+        "contentful-management": "^10.6.0",
+        "dotenv": "^16.0.1",
+        "eslint": "^8.16.0",
+        "eslint-config-next": "12.1.6",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-testing-library": "^5.5.1",
+        "identity-obj-proxy": "^3.0.0",
+        "jest": "^28.1.0",
+        "jest-environment-jsdom": "^28.1.0",
+        "open": "^8.4.0",
+        "prettier": "^2.6.2",
+        "typescript": "^4.6.4"
+    },
+    "packageManager": "yarn@3.2.1",
+    "name": "minimal-contentful-theme",
+    "description": "This example shows how to configure Jest to work with Next.js.",
+    "version": "1.0.0",
+    "main": "jest.config.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/drkstr101/minimal-contentful-theme.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/drkstr101/minimal-contentful-theme/issues"
+    },
+    "homepage": "https://github.com/drkstr101/minimal-contentful-theme#readme",
+    "prettier": "@stackbit/prettier-config"
 }

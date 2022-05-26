@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage without crashing 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <main
+      class="main"
+    >
+      <h1
+        class="title"
+      >
+        Stackbit Next.js Starter
+      </h1>
+    </main>
+  </div>
+</div>
+`;
