@@ -1,12 +1,11 @@
-import { toObjectId, toFieldPath } from '@stackbit/annotations';
-import { hotContentReload } from 'sourcebit-target-next/hot-content-reload';
 import Head from 'next/head';
 
 import { DynamicComponent } from '../components/DynamicComponent';
 import { Footer } from '../components/Footer';
 
-import { pageUrlPath } from '../utils/page-utils';
-import { pagesByLayout, dataByType } from '../utils/sourcebit-utils';
+import { sourcebitDataClient } from 'sourcebit-target-next';
+import { toObjectId, toFieldPath } from '@stackbit/annotations';
+import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
 
 export const FlexiblePage = ({ page, site }) => {
     // console.log({ page, site });
@@ -29,21 +28,18 @@ export const FlexiblePage = ({ page, site }) => {
     );
 };
 
-const withHotContentReload = hotContentReload();
-export default withHotContentReload(FlexiblePage);
-
-export const getStaticProps = async ({ params }) => {
-    const allPages = await pagesByLayout('Page');
-    const siteConfig = await dataByType('SiteConfig');
+export async function getStaticProps({ params }) {
     const pagePath = typeof params?.slug === 'string' ? params?.slug : '/' + (params?.slug || []).join('/');
-    const page = allPages.find((page) => pageUrlPath(page) === pagePath);
-    return { props: { page, site: siteConfig } };
-};
+    const props = await sourcebitDataClient.getStaticPropsForPageAtPath(pagePath);
+    return { props };
+}
 
-export const getStaticPaths = async () => {
-    const allPages = await pagesByLayout('Page');
+export async function getStaticPaths() {
+    const paths = await sourcebitDataClient.getStaticPaths();
     return {
-        paths: allPages.map((page) => pageUrlPath(page)),
+        paths,
         fallback: false
     };
-};
+}
+
+export default withRemoteDataUpdates(FlexiblePage);
