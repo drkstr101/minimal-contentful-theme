@@ -1,4 +1,7 @@
-# Stackbit Next.js Starter
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/drkstr101/minimal-contentful-theme)
+
+# [minimal-contentful-theme](https://github.com/drkstr101/minimal-contentful-theme)
+
 
 Begin a new Stackbit project or learn to add Stackbit to an existing site.
 
