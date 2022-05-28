@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FlexiblePage renders homepage without crashing 1`] = `
+exports[`minimal-contentful-theme FlexiblePage 1`] = `
 <div>
   <div
     class="page"
