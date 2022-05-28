@@ -5,14 +5,13 @@ async function allDocuments() {
 }
 
 /**
- * Extract objects from the data cache by matching the "layout" property in
- * frontmatter.
+ * Extract objects from the data cache by matching the "layout" property.
  *
  * @param {string} type Name of the model
  * @returns {array} Sourcebit data objects
  */
 export async function pagesByLayout(layout) {
-    return (await allDocuments()).filter((doc) => doc?.frontmatter?.layout === layout);
+    return (await allDocuments()).filter((doc) => doc.layout === layout);
 }
 
 /**

@@ -13,12 +13,12 @@ export const FlexiblePage = ({ page, site }) => {
     return (
         <div className="page">
             <Head>
-                <title>{page.frontmatter.title}</title>
+                <title>{page.title}</title>
             </Head>
             <div {...toObjectId(page?.__metadata?.id)}>
-                {page.frontmatter.sections?.length > 0 && (
+                {page.sections?.length > 0 && (
                     <div {...toFieldPath('sections')}>
-                        {page.frontmatter.sections.map((section, index) => (
+                        {page.sections.map((section, index) => (
                             <DynamicComponent key={index} {...section} {...toFieldPath(`.${index}`)} />
                         ))}
                     </div>

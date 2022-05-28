@@ -22,7 +22,7 @@ describe('FlexiblePage', () => {
 
     it('getStaticProps', async () => {
         const { props } = await getStaticProps({ params: { slug: '/' } });
-        expect(props.page.frontmatter).toEqual({
+        expect(props.page).toEqual({
             layout: 'Page',
             title: 'Stackbit Next.js Starter',
             sections: [
