@@ -1,21 +1,190 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders homepage without crashing 1`] = `
+exports[`FlexiblePage renders homepage without crashing 1`] = `
 <div>
   <div
-    class="container"
-    data-sb-object-id="125BNkMzYBM2rb7gT9Pfkf"
+    class="page"
   >
-    <main
-      class="main"
+    <div
+      data-sb-object-id="content/pages/index.md"
     >
-      <h1
-        class="title"
-        data-sb-field-path="title"
+      <div
+        data-sb-field-path="sections"
       >
-        Stackbit Next.js Starter
-      </h1>
-    </main>
+        <div
+          class="hero outer"
+          data-sb-field-path=".0"
+        >
+          <div
+            class="hero-container inner"
+          >
+            <h1
+              class="hero-heading"
+              data-sb-field-path=".heading"
+            >
+              Welcome to Stackbit!
+            </h1>
+            <p
+              class="hero-subheading"
+              data-sb-field-path=".subheading"
+            >
+              You've just 
+              <a
+                href="https://www.stackbit.com/"
+              >
+                unlocked visual editing capabilities
+              </a>
+               in this Next.js app.
+            </p>
+            <div
+              class="hero-buttons"
+              data-sb-field-path=".buttons"
+            >
+              <a
+                class="button theme-primary"
+                data-sb-field-path=".0"
+                href="https://docs.stackbit.com/getting-started/"
+              >
+                <span
+                  data-sb-field-path=".label"
+                >
+                  Start Building
+                </span>
+              </a>
+              <a
+                class="button theme-secondary"
+                data-sb-field-path=".1"
+                href="https://docs.stackbit.com/"
+              >
+                <span
+                  data-sb-field-path=".label"
+                >
+                  Read the Docs
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card-grid outer"
+          data-sb-field-path=".1"
+        >
+          <div
+            class="card-grid-container inner"
+          >
+            <h2
+              class="card-grid-heading"
+              data-sb-field-path=".heading"
+            >
+              Jump to Topic
+            </h2>
+            <p
+              class="card-grid-subheading"
+              data-sb-field-path=".subheading"
+            >
+              Or jump right to a specific topic to help you build your site.
+            </p>
+            <div
+              class="card-grid-cards"
+              data-sb-field-path=".cards"
+            >
+              <a
+                class="card"
+                data-sb-field-path=".0"
+                href="https://docs.stackbit.com/conceptual-guides/how-stackbit-works/"
+              >
+                <h3
+                  class="card-heading"
+                  data-sb-field-path=".heading"
+                >
+                  How Stackbit Works →
+                </h3>
+                <p
+                  class="card-subheading"
+                  data-sb-field-path=".subheading"
+                >
+                  Follow an end-to-end guide to learn the inner-workings of Stackbit.
+                </p>
+              </a>
+              <a
+                class="card"
+                data-sb-field-path=".1"
+                href="https://docs.stackbit.com/how-to-guides/content/"
+              >
+                <h3
+                  class="card-heading"
+                  data-sb-field-path=".heading"
+                >
+                  Pages →
+                </h3>
+                <p
+                  class="card-subheading"
+                  data-sb-field-path=".subheading"
+                >
+                  Add a new type of page to your site, while touching on content modeling and data retrieval.
+                </p>
+              </a>
+              <a
+                class="card"
+                data-sb-field-path=".2"
+                href="https://docs.stackbit.com/how-to-guides/components/"
+              >
+                <h3
+                  class="card-heading"
+                  data-sb-field-path=".heading"
+                >
+                  Components →
+                </h3>
+                <p
+                  class="card-subheading"
+                  data-sb-field-path=".subheading"
+                >
+                  Make components editable, add styles, and provide content presets to speed up content editing.
+                </p>
+              </a>
+              <a
+                class="card"
+                data-sb-field-path=".3"
+                href="https://docs.stackbit.com/how-to-guides/styles/"
+              >
+                <h3
+                  class="card-heading"
+                  data-sb-field-path=".heading"
+                >
+                  Styling →
+                </h3>
+                <p
+                  class="card-subheading"
+                  data-sb-field-path=".subheading"
+                >
+                  Set up global styles and add a styling toolbar to individual components in the visual editor.
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer
+      class="footer outer"
+      data-sb-field-path="content/data/config.json:footer"
+    >
+      <div
+        class="footer-container inner"
+      >
+        <p
+          class="footer-content"
+          data-sb-field-path=".body"
+        >
+          Made by 
+          <a
+            href="https://www.stackbit.com/"
+          >
+            Stackbit
+          </a>
+        </p>
+      </div>
+    </footer>
   </div>
 </div>
 `;

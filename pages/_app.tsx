@@ -1,6 +1,16 @@
-import '../styles/global.css';
-import type { AppProps } from 'next/app';
+import Head from 'next/head';
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-    return <Component {...pageProps} />;
+import '../styles/styles.css';
+
+function MyApp({ Component, pageProps }) {
+    return (
+        <>
+            <Head>
+                <link rel="icon" href="/favicon.svg" />
+            </Head>{' '}
+            <Component {...pageProps} />
+        </>
+    );
 }
+
+export default MyApp;

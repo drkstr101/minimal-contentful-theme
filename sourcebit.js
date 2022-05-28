@@ -1,33 +1,21 @@
+const path = require('path');
+
+const isDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
     plugins: [
         {
-            module: require('sourcebit-source-contentful'),
+            module: require('sourcebit-source-filesystem'),
             options: {
-                accessToken: process.env['CONTENTFUL_ACCESS_TOKEN'],
-                environment: 'master',
-                spaceId: 'krtnabbrkhtd'
+                watch: isDev,
+                sources: [{ name: 'content', path: path.join(__dirname, 'content') }]
             }
         },
         {
             module: require('sourcebit-target-next'),
             options: {
-                pages: function (objects, utils) {
-                    return objects.reduce((pages, page) => {
-                        if (page.__metadata.modelName === 'Page' && page.__metadata.source === 'sourcebit-source-contentful') {
-                            return pages.concat({
-                                path: '{slug}',
-                                page
-                            });
-                        }
-
-                        return pages;
-                    }, []);
-                },
-                commonProps: function (objects, utils) {
-                    return {
-                        site: objects.find((object) => object.__metadata.modelName === 'SiteConfig')
-                    };
-                }
+                flattenAssetUrls: true,
+                liveUpdate: isDev
             }
         }
     ]

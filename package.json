@@ -1,24 +1,29 @@
 {
+    "name": "stackbit-minimal-sourcebit",
+    "version": "0.1.0",
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "next build && next export",
+        "stackbit": "stackbit",
+        "stackbit-dev": "node ./bin/dev.js",
+        "build": "next build",
+        "export": "next export",
         "start": "next start",
         "lint": "next lint",
         "format": "prettier --write .",
-        "test": "jest --watch",
+        "test": "jest -u",
         "test:ci": "jest --ci",
-        "contentful:import": "node ./contentful/import.js",
-        "contentful:export": "node ./contentful/export.js"
+        "validate": "stackbit validate"
     },
     "dependencies": {
         "@stackbit/annotations": "^0.1.2",
-        "next": "latest",
+        "markdown-to-jsx": "^7.1.7",
+        "next": "^12.1.6",
         "react": "^18.1.0",
         "react-dom": "^18.1.0",
-        "sourcebit": "0.0.0",
-        "sourcebit-source-contentful": "0.0.0",
-        "sourcebit-target-next": "0.0.0"
+        "sourcebit": "^0.11.1",
+        "sourcebit-source-filesystem": "^0.2.0",
+        "sourcebit-target-next": "^0.8.2"
     },
     "devDependencies": {
         "@contentful/rich-text-types": "^15.12.1",
@@ -36,7 +41,7 @@
         "contentful-management": "^10.6.0",
         "dotenv": "^16.0.1",
         "eslint": "^8.16.0",
-        "eslint-config-next": "12.1.6",
+        "eslint-config-next": "^12.1.6",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-testing-library": "^5.5.1",
         "identity-obj-proxy": "^3.0.0",
@@ -44,26 +49,8 @@
         "jest-environment-jsdom": "^28.1.0",
         "open": "^8.4.0",
         "prettier": "^2.6.2",
-        "typescript": "^4.6.4"
+        "typescript": "^4.7.2"
     },
     "packageManager": "yarn@3.2.1",
-    "name": "minimal-contentful-theme",
-    "description": "This example shows how to configure Jest to work with Next.js.",
-    "version": "1.0.0",
-    "main": "jest.config.js",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/drkstr101/minimal-contentful-theme.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/drkstr101/minimal-contentful-theme/issues"
-    },
-    "homepage": "https://github.com/drkstr101/minimal-contentful-theme#readme",
-    "prettier": "@stackbit/prettier-config",
-    "workspaces": [
-        "packages/*"
-    ]
+    "prettier": "@stackbit/prettier-config"
 }
