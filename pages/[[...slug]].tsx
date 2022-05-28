@@ -5,7 +5,9 @@ import { Footer } from '../components/Footer';
 
 import { sourcebitDataClient } from 'sourcebit-target-next';
 import { toObjectId, toFieldPath } from '@stackbit/annotations';
-import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
+import { hotContentReload } from 'sourcebit-target-next/hot-content-reload';
+
+const withRemoteDataUpdates = hotContentReload();
 
 export const FlexiblePage = ({ page, site }) => {
     // console.log({ page, site });
