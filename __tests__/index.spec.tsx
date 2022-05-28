@@ -3,8 +3,42 @@ import { FlexiblePage, getStaticProps, getStaticPaths } from '../pages/[[...slug
 import sourcebit from 'sourcebit';
 import config from '../sourcebit.js';
 import { act } from 'react-dom/test-utils';
+import { omit, transform, isObject, isArray, keyBy, isNil } from 'lodash';
 
 const sourcebitOptions = {};
+
+function deepOmit(input, props) {
+    function omitDeepOnOwnProps(obj) {
+        if (typeof input === 'undefined') {
+            return input;
+        }
+
+        if (!Array.isArray(obj) && !isObject(obj)) {
+            return obj;
+        }
+
+        if (Array.isArray(obj)) {
+            return deepOmit(obj, props);
+        }
+
+        const o = {};
+        for (const [key, value] of Object.entries(obj)) {
+            o[key] = !isNil(value) ? deepOmit(value, props) : value;
+        }
+
+        return omit(o, props);
+    }
+
+    if (arguments.length > 2) {
+        props = Array.prototype.slice.call(arguments).slice(1);
+    }
+
+    if (Array.isArray(input)) {
+        return input.map(omitDeepOnOwnProps);
+    }
+
+    return omitDeepOnOwnProps(input);
+}
 
 describe('FlexiblePage', () => {
     // ensure sourcebit has loaded
@@ -22,49 +56,51 @@ describe('FlexiblePage', () => {
 
     it('getStaticProps', async () => {
         const { props } = await getStaticProps({ params: { slug: '/' } });
-        expect(props.page).toEqual({
-            layout: 'Page',
-            title: 'Stackbit Next.js Starter',
-            sections: [
-                {
-                    type: 'HeroSection',
-                    heading: 'Welcome to Stackbit!',
-                    subheading: "You've just [unlocked visual editing capabilities](https://www.stackbit.com/) in this Next.js app.\n",
-                    buttons: [
-                        { label: 'Start Building', url: 'https://docs.stackbit.com/getting-started/', theme: 'primary' },
-                        { label: 'Read the Docs', url: 'https://docs.stackbit.com/', theme: 'secondary' }
-                    ]
-                },
-                {
-                    type: 'CardGridSection',
-                    heading: 'Jump to Topic',
-                    subheading: 'Or jump right to a specific topic to help you build your site.\n',
-                    cards: [
-                        {
-                            heading: 'How Stackbit Works →',
-                            subheading: 'Follow an end-to-end guide to learn the inner-workings of Stackbit.\n',
-                            url: 'https://docs.stackbit.com/conceptual-guides/how-stackbit-works/'
-                        },
-                        {
-                            heading: 'Pages →',
-                            subheading: 'Add a new type of page to your site, while touching on content modeling and data retrieval.\n',
-                            url: 'https://docs.stackbit.com/how-to-guides/content/'
-                        },
-                        {
-                            heading: 'Components →',
-                            subheading: 'Make components editable, add styles, and provide content presets to speed up content editing.\n',
-                            url: 'https://docs.stackbit.com/how-to-guides/components/'
-                        },
-                        {
-                            heading: 'Styling →',
-                            subheading: 'Set up global styles and add a styling toolbar to individual components in the visual editor.\n',
-                            url: 'https://docs.stackbit.com/how-to-guides/styles/'
-                        }
-                    ]
-                }
-            ]
-        });
-        expect(props.site.footer.body).toEqual('Made by [Stackbit](https://www.stackbit.com/)\n');
+        const { site, page } = props;
+
+        expect(site).toBeTruthy();
+        expect(site.title).toEqual('Stackbit');
+        expect(site.footer.body).toEqual('Made by [Stackbit](https://www.stackbit.com/)\n');
+
+        expect(page).toBeTruthy();
+        expect(page.slug).toEqual('/');
+        expect(page.layout).toEqual('Page');
+        expect(deepOmit(page.sections, '__metadata')).toEqual([
+            {
+                heading: 'Welcome to Stackbit!',
+                subheading: "You've just [unlocked visual editing capabilities](https://www.stackbit.com/) in this Next.js app.",
+                buttons: [
+                    { label: 'Start Building', url: 'https://docs.stackbit.com/getting-started/', theme: 'primary' },
+                    { label: 'Read the Docs', url: 'https://docs.stackbit.com/', theme: 'secondary' }
+                ]
+            },
+            {
+                heading: 'Jump to Topic',
+                subheading: 'Or jump right to a specific topic to help you build your site.',
+                cards: [
+                    {
+                        heading: 'How Stackbit Works →',
+                        subheading: 'Follow an end-to-end guide to learn the inner-workings of Stackbit.',
+                        url: 'https://docs.stackbit.com/conceptual-guides/how-stackbit-works/'
+                    },
+                    {
+                        heading: 'Pages →',
+                        subheading: 'Add a new type of page to your site, while touching on content modeling and data retrieval.',
+                        url: 'https://docs.stackbit.com/how-to-guides/content/'
+                    },
+                    {
+                        heading: 'Components →',
+                        subheading: 'Make components editable, add styles, and provide content presets to speed up content editing.',
+                        url: 'https://docs.stackbit.com/how-to-guides/components/'
+                    },
+                    {
+                        heading: 'Styling →',
+                        subheading: 'Set up global styles and add a styling toolbar to individual components in the visual editor.',
+                        url: 'https://docs.stackbit.com/how-to-guides/styles/'
+                    }
+                ]
+            }
+        ]);
     });
 
     it('renders homepage without crashing', async () => {

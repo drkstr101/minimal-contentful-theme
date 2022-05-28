@@ -6,7 +6,7 @@ exports[`FlexiblePage renders homepage without crashing 1`] = `
     class="page"
   >
     <div
-      data-sb-object-id="content/pages/index.md"
+      data-sb-object-id="3lmADqxm2MOrKUlM9pNL3t"
     >
       <div
         data-sb-field-path="sections"
@@ -24,7 +24,7 @@ exports[`FlexiblePage renders homepage without crashing 1`] = `
             >
               Welcome to Stackbit!
             </h1>
-            <p
+            <span
               class="hero-subheading"
               data-sb-field-path=".subheading"
             >
@@ -35,7 +35,7 @@ exports[`FlexiblePage renders homepage without crashing 1`] = `
                 unlocked visual editing capabilities
               </a>
                in this Next.js app.
-            </p>
+            </span>
             <div
               class="hero-buttons"
               data-sb-field-path=".buttons"
@@ -78,12 +78,12 @@ exports[`FlexiblePage renders homepage without crashing 1`] = `
             >
               Jump to Topic
             </h2>
-            <p
+            <span
               class="card-grid-subheading"
               data-sb-field-path=".subheading"
             >
               Or jump right to a specific topic to help you build your site.
-            </p>
+            </span>
             <div
               class="card-grid-cards"
               data-sb-field-path=".cards"
@@ -99,12 +99,12 @@ exports[`FlexiblePage renders homepage without crashing 1`] = `
                 >
                   How Stackbit Works →
                 </h3>
-                <p
+                <span
                   class="card-subheading"
                   data-sb-field-path=".subheading"
                 >
                   Follow an end-to-end guide to learn the inner-workings of Stackbit.
-                </p>
+                </span>
               </a>
               <a
                 class="card"
@@ -117,12 +117,12 @@ exports[`FlexiblePage renders homepage without crashing 1`] = `
                 >
                   Pages →
                 </h3>
-                <p
+                <span
                   class="card-subheading"
                   data-sb-field-path=".subheading"
                 >
                   Add a new type of page to your site, while touching on content modeling and data retrieval.
-                </p>
+                </span>
               </a>
               <a
                 class="card"
@@ -135,12 +135,12 @@ exports[`FlexiblePage renders homepage without crashing 1`] = `
                 >
                   Components →
                 </h3>
-                <p
+                <span
                   class="card-subheading"
                   data-sb-field-path=".subheading"
                 >
                   Make components editable, add styles, and provide content presets to speed up content editing.
-                </p>
+                </span>
               </a>
               <a
                 class="card"
@@ -153,12 +153,12 @@ exports[`FlexiblePage renders homepage without crashing 1`] = `
                 >
                   Styling →
                 </h3>
-                <p
+                <span
                   class="card-subheading"
                   data-sb-field-path=".subheading"
                 >
                   Set up global styles and add a styling toolbar to individual components in the visual editor.
-                </p>
+                </span>
               </a>
             </div>
           </div>
