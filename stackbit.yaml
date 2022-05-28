@@ -3,7 +3,7 @@
 # stackbit.yaml configuration visit https://docs.stackbit.com/reference/stackbit-yaml/
 stackbitVersion: ~0.4.0
 ssgName: nextjs
-cmsName: contentful
+cmsName: git
 nodeVersion: '16'
 
 # The "buildCommand" and the "publishDir" properties are used to configure the
@@ -11,23 +11,20 @@ nodeVersion: '16'
 buildCommand: yarn build
 publishDir: .next
 
-# The "import" object defines how Stackbit should provision Contentful when
-# creating a new site from this theme via https://app.stackbit.com/create.
-import:
-  type: contentful
-  contentFile: contentful/export.json
-  uploadAssets: true
-  assetsDirectory: contentful
-  spaceIdEnvVar: CONTENTFUL_SPACE_ID
-  accessTokenEnvVar: CONTENTFUL_DELIVERY_TOKEN
+dataDir: content/data
+pagesDir: content/pages
 
-# styleObjectModelName: ThemeStyle
+# Defines which content types can be added in the UI as pages or standalone non-pages,
+# the URL mapping of pages, and more. See Mapping Content Models.
+assets:
+    referenceType: static
+    staticDir: public
+    uploadDir: images
+    publicPath: /
 
-modelsSource:
-  type: contentful
-
-# These models are merged with Contentful models
-models:
-  Page:
-    type: page
-    urlPath: '{slug}'
+# These models are merged with .stackbit/models
+contentModels:
+    Page:
+        isPage: true
+        urlPath: '/{slug}'
+        newFilePath: '{slug}.md'

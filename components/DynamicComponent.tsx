@@ -7,10 +7,10 @@ const componentsMap = {
 };
 
 export const DynamicComponent = (props) => {
-    const Component = componentsMap[props.__metadata.modelName];
+    const Component = componentsMap[props.type];
     if (!Component) {
         throw new Error(
-            `No component match object with type: '${props.__metadata.modelName}'\nMake sure DynamicComponent.tsx file has an entry for '${props.__metadata.modelName}' in 'componentsMap'`
+            `No component match object with type: '${props.type}'\nMake sure DynamicComponent.tsx file has an entry for '${props.type}' in 'componentsMap'`
         );
     }
     return <Component {...props} />;
