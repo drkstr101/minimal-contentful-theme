@@ -3,8 +3,9 @@ import Markdown from 'markdown-to-jsx';
 import { toFieldPath, pickDataAttrs } from '@stackbit/annotations';
 
 import { Button } from './Button';
+import { IHeroSection } from '../types/sourcebit';
 
-export const HeroSection = (props) => {
+export const HeroSection = (props: IHeroSection) => {
     return (
         <div className="hero outer" {...pickDataAttrs(props)}>
             <div className="hero-container inner">

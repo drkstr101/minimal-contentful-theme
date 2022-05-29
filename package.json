@@ -15,7 +15,8 @@
         "test:ci": "jest --ci",
         "validate": "stackbit validate",
         "contentful:import": "node ./contentful/import.js",
-        "contentful:export": "node ./contentful/export.js"
+        "contentful:export": "node ./contentful/export.js",
+        "contentful:codegen": "contentful-typescript-codegen --output types/contentful.d.ts && node ./contentful-to-sourcebit-types.js"
     },
     "dependencies": {
         "@stackbit/annotations": "^0.1.2",
@@ -42,6 +43,7 @@
         "contentful-export": "^7.17.7",
         "contentful-import": "^8.3.0",
         "contentful-management": "^10.6.0",
+        "contentful-typescript-codegen": "^3.2.3",
         "dotenv": "^16.0.1",
         "eslint": "^8.16.0",
         "eslint-config-next": "^12.1.6",

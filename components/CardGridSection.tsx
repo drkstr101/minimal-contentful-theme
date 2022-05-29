@@ -3,8 +3,9 @@ import Markdown from 'markdown-to-jsx';
 import { toFieldPath, pickDataAttrs } from '@stackbit/annotations';
 
 import { Card } from './Card';
+import { ICardGridSection } from '../types/sourcebit';
 
-export const CardGridSection = (props) => {
+export const CardGridSection = (props: ICardGridSection) => {
     return (
         <div className="card-grid outer" {...pickDataAttrs(props)}>
             <div className="card-grid-container inner">

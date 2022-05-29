@@ -6,8 +6,14 @@ import { Footer } from '../components/Footer';
 import { sourcebitDataClient } from 'sourcebit-target-next';
 import { toObjectId, toFieldPath } from '@stackbit/annotations';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
+import { IPage, ISiteConfig } from '../types/sourcebit';
 
-export const FlexiblePage = ({ page, site }) => {
+export interface FlexiblePageProps {
+    page: IPage;
+    site: ISiteConfig;
+}
+
+export const FlexiblePage = ({ page, site }: FlexiblePageProps) => {
     // console.log({ page, site });
     return (
         <div className="page">

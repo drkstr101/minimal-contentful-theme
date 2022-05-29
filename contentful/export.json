@@ -12,7 +12,7 @@
         "id": "Button",
         "type": "ContentType",
         "createdAt": "2022-05-28T01:37:25.339Z",
-        "updatedAt": "2022-05-28T01:37:25.725Z",
+        "updatedAt": "2022-05-28T23:50:36.576Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -20,8 +20,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 1,
-        "publishedAt": "2022-05-28T01:37:25.725Z",
+        "publishedVersion": 3,
+        "publishedAt": "2022-05-28T23:50:36.576Z",
         "firstPublishedAt": "2022-05-28T01:37:25.725Z",
         "createdBy": {
           "sys": {
@@ -37,8 +37,8 @@
             "id": "2M8nCPDfi0npsWVPhtMhn6"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 2,
+        "version": 4,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -87,10 +87,10 @@
           "required": true,
           "validations": [
             {
-              "regexp": {
-                "pattern": "primary|secondary",
-                "flags": null
-              }
+              "in": [
+                "primary",
+                "secondary"
+              ]
             }
           ],
           "defaultValue": {
@@ -208,7 +208,7 @@
         "id": "CardGridSection",
         "type": "ContentType",
         "createdAt": "2022-05-28T01:43:04.562Z",
-        "updatedAt": "2022-05-28T02:27:59.191Z",
+        "updatedAt": "2022-05-28T23:57:59.570Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -216,8 +216,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2022-05-28T02:27:59.191Z",
+        "publishedVersion": 5,
+        "publishedAt": "2022-05-28T23:57:59.570Z",
         "firstPublishedAt": "2022-05-28T01:43:04.940Z",
         "createdBy": {
           "sys": {
@@ -233,8 +233,8 @@
             "id": "2M8nCPDfi0npsWVPhtMhn6"
           }
         },
-        "publishedCounter": 2,
-        "version": 4,
+        "publishedCounter": 3,
+        "version": 6,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -277,7 +277,7 @@
           "name": "Cards",
           "type": "Array",
           "localized": false,
-          "required": false,
+          "required": true,
           "validations": [
           ],
           "disabled": false,
@@ -308,7 +308,7 @@
         "id": "HeroSection",
         "type": "ContentType",
         "createdAt": "2022-05-28T01:46:59.614Z",
-        "updatedAt": "2022-05-28T02:28:19.773Z",
+        "updatedAt": "2022-05-28T23:57:36.076Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -316,8 +316,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2022-05-28T02:28:19.773Z",
+        "publishedVersion": 5,
+        "publishedAt": "2022-05-28T23:57:36.076Z",
         "firstPublishedAt": "2022-05-28T01:47:00.164Z",
         "createdBy": {
           "sys": {
@@ -333,8 +333,8 @@
             "id": "2M8nCPDfi0npsWVPhtMhn6"
           }
         },
-        "publishedCounter": 2,
-        "version": 4,
+        "publishedCounter": 3,
+        "version": 6,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -374,7 +374,7 @@
           "name": "Buttons",
           "type": "Array",
           "localized": false,
-          "required": false,
+          "required": true,
           "validations": [
           ],
           "disabled": false,
@@ -405,7 +405,7 @@
         "id": "Page",
         "type": "ContentType",
         "createdAt": "2022-05-28T01:56:58.767Z",
-        "updatedAt": "2022-05-28T02:28:50.530Z",
+        "updatedAt": "2022-05-28T23:55:19.253Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -413,8 +413,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 5,
-        "publishedAt": "2022-05-28T02:28:50.530Z",
+        "publishedVersion": 7,
+        "publishedAt": "2022-05-28T23:55:19.253Z",
         "firstPublishedAt": "2022-05-28T01:56:59.033Z",
         "createdBy": {
           "sys": {
@@ -430,8 +430,8 @@
             "id": "2M8nCPDfi0npsWVPhtMhn6"
           }
         },
-        "publishedCounter": 3,
-        "version": 6,
+        "publishedCounter": 4,
+        "version": 8,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -503,7 +503,7 @@
           "name": "Sections",
           "type": "Array",
           "localized": false,
-          "required": false,
+          "required": true,
           "validations": [
           ],
           "disabled": false,
@@ -683,7 +683,7 @@
             "linkType": "Space"
           }
         },
-        "version": 2,
+        "version": 4,
         "createdAt": "2022-05-28T01:37:25.771Z",
         "createdBy": {
           "sys": {
@@ -692,7 +692,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-05-28T01:37:26.353Z",
+        "updatedAt": "2022-05-28T23:50:37.513Z",
         "updatedBy": {
           "sys": {
             "id": "2M8nCPDfi0npsWVPhtMhn6",
@@ -805,7 +805,7 @@
             "linkType": "Space"
           }
         },
-        "version": 4,
+        "version": 6,
         "createdAt": "2022-05-28T01:43:04.981Z",
         "createdBy": {
           "sys": {
@@ -814,7 +814,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-05-28T02:27:59.908Z",
+        "updatedAt": "2022-05-28T23:58:00.422Z",
         "updatedBy": {
           "sys": {
             "id": "2M8nCPDfi0npsWVPhtMhn6",
@@ -866,7 +866,7 @@
             "linkType": "Space"
           }
         },
-        "version": 4,
+        "version": 6,
         "createdAt": "2022-05-28T01:47:00.215Z",
         "createdBy": {
           "sys": {
@@ -875,7 +875,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-05-28T02:28:20.397Z",
+        "updatedAt": "2022-05-28T23:57:36.677Z",
         "updatedBy": {
           "sys": {
             "id": "2M8nCPDfi0npsWVPhtMhn6",
@@ -927,7 +927,7 @@
             "linkType": "Space"
           }
         },
-        "version": 6,
+        "version": 8,
         "createdAt": "2022-05-28T01:56:59.132Z",
         "createdBy": {
           "sys": {
@@ -936,7 +936,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-05-28T02:28:51.206Z",
+        "updatedAt": "2022-05-28T23:55:20.439Z",
         "updatedBy": {
           "sys": {
             "id": "2M8nCPDfi0npsWVPhtMhn6",
@@ -1487,7 +1487,7 @@
         "id": "7zKFe3L8Ue7POcLrFQFJzs",
         "type": "Entry",
         "createdAt": "2022-05-28T02:22:30.967Z",
-        "updatedAt": "2022-05-28T02:22:59.552Z",
+        "updatedAt": "2022-05-28T23:50:59.176Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -1495,8 +1495,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 4,
-        "publishedAt": "2022-05-28T02:22:59.552Z",
+        "publishedVersion": 7,
+        "publishedAt": "2022-05-28T23:50:59.176Z",
         "firstPublishedAt": "2022-05-28T02:22:59.552Z",
         "createdBy": {
           "sys": {
@@ -1512,8 +1512,8 @@
             "id": "2M8nCPDfi0npsWVPhtMhn6"
           }
         },
-        "publishedCounter": 1,
-        "version": 5,
+        "publishedCounter": 2,
+        "version": 8,
         "publishedBy": {
           "sys": {
             "type": "Link",

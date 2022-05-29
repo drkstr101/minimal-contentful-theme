@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { Metadata } from '../types/sourcebit';
 
 const componentsMap = {
     // sections
@@ -6,7 +7,7 @@ const componentsMap = {
     HeroSection: dynamic(() => namedComponent(import('./HeroSection'), 'HeroSection'))
 };
 
-export const DynamicComponent = (props) => {
+export const DynamicComponent = (props: Metadata) => {
     const Component = componentsMap[props.__metadata.modelName];
     if (!Component) {
         throw new Error(

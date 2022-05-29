@@ -2,7 +2,6 @@
 
 # [minimal-contentful-theme](https://github.com/drkstr101/minimal-contentful-theme)
 
-
 Begin a new Stackbit project or learn to add Stackbit to an existing site.
 
 ## Getting Started
@@ -35,7 +34,6 @@ Or jump to individual topics [in the docs](https://docs.stackbit.com/).
 
 ## NOTES
 
-
 ### 1. `hot-content-reload` vs `with-remote-data-updates`
 
 What is the difference between `sourcebit-target-next/hot-content-reload` and `sourcebit-target-next/with-remote-data-updates`.
@@ -46,12 +44,11 @@ The only reference to `hot-content-reload` is a brief mention in [the troublesho
 
 It was not clear from the documentation which is the preferred method. Could we maybe merge these use cases? It seems confusing to me to have one method for git, and another for api (I'm assuming that was the intended difference between them).
 
-
 ---
 
 ### 2. Annotations usage with frontmatter
 
-Why does `FlexiblePage` from `create-stackbit-app` not use [nested object notation](https://docs.stackbit.com/reference/annotations/data-sb-field-path/#annotating_nested_objects) for fields defined in frontmatter? And how is it that when I flatten the frontmatter, the page still works without modification (IE. where specifically can I find the code that infers this automatically)? 
+Why does `FlexiblePage` from `create-stackbit-app` not use [nested object notation](https://docs.stackbit.com/reference/annotations/data-sb-field-path/#annotating_nested_objects) for fields defined in frontmatter? And how is it that when I flatten the frontmatter, the page still works without modification (IE. where specifically can I find the code that infers this automatically)?
 
 ```tsx
     // console.log({ page, site });
@@ -99,9 +96,9 @@ What is the difference between the `contentModels` (documented) and `models` (un
 
 ```yml
 contentModels:
-  Page:
-    isPage: true
-    urlPath: "/{slug}"
+    Page:
+        isPage: true
+        urlPath: '/{slug}'
 ```
 
 vs
@@ -115,7 +112,6 @@ models:
 
 The former only works with git, while the later only seems to work with api (EG contentful).
 
-
 ### 4. `@stackbit/cms-contentful`
 
 I see this is added as a dependency to our existing contentful theme, but there is no mention in the docs about what this is or why/when it would be needed.
@@ -126,15 +122,15 @@ I see this is added as a dependency to our existing contentful theme, but there 
 
 Would it be reasonable at this point to propose a breaking change to `sourcebit-source-filesystem` that flattens frontmatter by default (unless maybe specified in options), and also includes the resolved model name in `__metadata.modelName`? Automatically providing a `__metadata.urlPath` based on standard algo, perhaps configurable in options, would be another big win for code-reuse IMHO.
 
-*This would eliminate the need for magic fields polluting the domain model (IE `layout`, `type`, `slug`, etc.), and greatly improve code reuse across different model sources. Code resuse is pretty much impossible between sources as it stands now, without additional code to massage the data back into what one would expect for their own user-defined domain model.*
+_This would eliminate the need for magic fields polluting the domain model (IE `layout`, `type`, `slug`, etc.), and greatly improve code reuse across different model sources. Code resuse is pretty much impossible between sources as it stands now, without additional code to massage the data back into what one would expect for their own user-defined domain model._
 
 ---
 
-### 6. Data dedupe in nextjs cache 
+### 6. Data dedupe in nextjs cache
 
 Should we make an attempt to dedupe the page models from `sourcebit-target-nextjs`, which are currently listed both in the `objects` bucket and again in the `pages`? Or perhaps reference the page data by ID rather than copy all the fields? note: This only applies when `sourcebit-target-nextjs` has correctly defined its pages in the options.
 
-*This is not super important, but I could see it maybe having a small impact on performance for large(ish) sites. Although, it probably doesn't even matter since the only thing sent across the wire is that which is returned by `getStaticProps`...*
+_This is not super important, but I could see it maybe having a small impact on performance for large(ish) sites. Although, it probably doesn't even matter since the only thing sent across the wire is that which is returned by `getStaticProps`..._
 
 ---
 
