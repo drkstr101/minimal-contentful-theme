@@ -26,6 +26,7 @@ class Sourcebit {
     }
 
     async bootstrapAll() {
+        console.log('[sourcebit] Bootstrapping plugins...');
         this.isBootstrapping = true;
 
         let queue = Promise.resolve();
@@ -44,6 +45,7 @@ class Sourcebit {
     }
 
     async bootstrapPluginAtIndex(index) {
+        console.log(`[sourcebit] Bootstrapping ${index}...`);
         const pluginBlock = this.pluginBlocks[index];
         const { options } = pluginBlock;
         const plugin = this.pluginModules[index];
@@ -90,6 +92,8 @@ class Sourcebit {
     loadContextFromCache() {
         if (!this.isCacheEnabled) return;
 
+        console.log('[sourcebit] Loading cache from %s', this.cacheFilePath);
+
         try {
             const data = fs.readFileSync(this.cacheFilePath, 'utf8');
 
@@ -100,6 +104,7 @@ class Sourcebit {
     }
 
     loadPlugins(plugins) {
+        console.log('[sourcebit] Loading plugins...');
         this.pluginBlocks = plugins;
         this.pluginModules = plugins.map((plugin) => {
             if (typeof plugin === 'function') {
@@ -153,6 +158,8 @@ class Sourcebit {
     saveContextToCache() {
         if (!this.isCacheEnabled) return;
 
+        console.log('[sourcebit] Persisting cache to %s', this.cacheFilePath);
+
         const serializedCache = JSON.stringify(this.context);
 
         try {
@@ -178,6 +185,8 @@ class Sourcebit {
 
             return;
         }
+
+        console.log('[sourcebit] Starting transform.');
 
         this.isTransforming = true;
 
@@ -306,6 +315,8 @@ class Sourcebit {
 
             return result;
         }, {});
+
+        console.log('[sourcebit] Write files:', Object.keys(filesByPath));
 
         // We start by deleting any files that were previously created by this plugin
         // but that are not part of the site after the update.
