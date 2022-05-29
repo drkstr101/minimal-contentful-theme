@@ -8,7 +8,7 @@ module.exports.fetch = (config, runtimeParameters, transformCallback) => {
         runtimeParameters = {};
     }
 
-    const transformDataPromise = fetch(config, runtimeParameters, transformCallback)
+    const transformDataPromise = fetch(config, runtimeParameters, transformCallback);
 
     if (typeof transformCallback !== 'function') {
         return transformDataPromise;
@@ -26,8 +26,8 @@ module.exports.sourcebitNext = ({ config, runtimeParameters, transformCallback }
                 await fetch(config, runtimeParameters, transformCallback);
                 return nextConfig.redirects ? nextConfig.redirects() : [];
             }
-        }
-    }
+        };
+    };
 };
 
 async function fetch(config, runtimeParameters, transformCallback) {

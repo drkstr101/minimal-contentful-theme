@@ -17,7 +17,7 @@ module.exports.writeJSON = (filePath, data) => {
     return writeFile(filePath, content);
 };
 
-module.exports.writeYAML = function(filePath, data) {
+module.exports.writeYAML = function (filePath, data) {
     const content = yaml.stringify(data);
 
     return writeFile(filePath, content);

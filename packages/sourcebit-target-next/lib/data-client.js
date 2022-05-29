@@ -65,7 +65,6 @@ class SourcebitDataClient {
                                 `sourcebitDataClient of the sourcebit-target-next plugin could not JSON parse the '${DEFAULT_FILE_CACHE_PATH}' file. Please check that other Sourcebit plugins are executed successfully.`
                             )
                         );
-
                     }
                 }
             };

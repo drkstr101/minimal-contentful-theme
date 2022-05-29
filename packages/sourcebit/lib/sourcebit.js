@@ -101,7 +101,7 @@ class Sourcebit {
 
     loadPlugins(plugins) {
         this.pluginBlocks = plugins;
-        this.pluginModules = plugins.map(plugin => {
+        this.pluginModules = plugins.map((plugin) => {
             if (typeof plugin === 'function') {
                 return { transform: plugin };
             }
@@ -130,7 +130,7 @@ class Sourcebit {
         const defaults = {};
         const overrides = {};
 
-        Object.keys(optionsSchema).forEach(key => {
+        Object.keys(optionsSchema).forEach((key) => {
             const option = optionsSchema[key];
 
             // If the option defines an `env` property and there's an environment variable defined with that name, we'll use
@@ -210,7 +210,7 @@ class Sourcebit {
                 return queue;
             }
 
-            return queue.then(data => {
+            return queue.then((data) => {
                 const plugin = this.pluginModules[index];
                 const pluginName = this.getNameOfPluginAtIndex(index);
 
@@ -309,7 +309,7 @@ class Sourcebit {
 
         // We start by deleting any files that were previously created by this plugin
         // but that are not part of the site after the update.
-        this.fileWriterCache.forEach(filePath => {
+        this.fileWriterCache.forEach((filePath) => {
             if (!filesByPath[filePath]) {
                 try {
                     fs.unlinkSync(filePath);
@@ -325,7 +325,7 @@ class Sourcebit {
         this.fileWriterCache = Object.keys(filesByPath);
 
         // Now we write all the files that need to be created.
-        const queue = Object.keys(filesByPath).map(async filePath => {
+        const queue = Object.keys(filesByPath).map(async (filePath) => {
             const file = filesByPath[filePath];
             const writerFunction = FILE_WRITERS[file.format];
 

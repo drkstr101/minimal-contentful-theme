@@ -92,7 +92,7 @@ const sourcebit = require('sourcebit');
 const config = require('./sourcebit.js');
 const options = {};
 
-sourcebit.fetch(config, options).then(data => {
+sourcebit.fetch(config, options).then((data) => {
     console.log(data);
 });
 ```
