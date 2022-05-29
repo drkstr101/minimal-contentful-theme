@@ -13,6 +13,7 @@ const eventEmitter = new EventEmitter();
 const isDev = process.env.NODE_ENV === 'development';
 
 module.exports.bootstrap = async ({ options }) => {
+    console.log('[sourcebit-target-next] Bootstrapping...');
     const cacheFilePath = _.get(options, 'cacheFilePath', DEFAULT_FILE_CACHE_PATH);
     const liveUpdate = _.get(options, 'liveUpdate', isDev);
     const liveUpdatePort = _.get(options, 'liveUpdatePort', DEFAULT_LIVE_UPDATE_PORT);
@@ -22,11 +23,14 @@ module.exports.bootstrap = async ({ options }) => {
     await fse.remove(cacheFilePath);
 
     if (liveUpdate) {
+        console.log('[sourcebit-target-next] Watch enabled.');
         startStaticPropsWatcher({ port: liveUpdatePort, eventName: liveUpdateEventName, namespace: liveUpdateNamespace });
     }
 };
 
 module.exports.transform = async ({ data, options }) => {
+    console.log('[sourcebit-target-next] Starting transform.');
+
     const cacheFilePath = _.get(options, 'cacheFilePath', DEFAULT_FILE_CACHE_PATH);
     // allow configuring different socket.io port for client, useful if the socket can be
     // proxied through same webserver that serves nest.js app

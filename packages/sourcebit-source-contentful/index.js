@@ -2,6 +2,7 @@ const contentful = require('contentful');
 const contentfulManagement = require('contentful-management');
 const { normalizeEntries, resolveLinksInEntry, getDefaultLocale, syncWithRetry } = require('./lib/contentful-util');
 const pkg = require('./package.json');
+const { inspect } = require('util');
 
 module.exports.name = pkg.name;
 
@@ -40,6 +41,7 @@ module.exports.options = {
 };
 
 module.exports.bootstrap = async ({ getPluginContext, options, refresh, setPluginContext }) => {
+    console.log('[sourcebit-source-contentful] Bootstrapping...');
     const isPreview = options.preview !== undefined ? options.preview : options.watch;
     const host = options.host || (isPreview ? 'preview.contentful.com' : undefined);
     const environment = options.environment || 'master';
@@ -99,6 +101,7 @@ module.exports.bootstrap = async ({ getPluginContext, options, refresh, setPlugi
     });
 
     if (options.watch) {
+        console.log('[sourcebit-source-contentful] Watch enabled.');
         setInterval(async () => {
             const { assets, entries, nextSyncToken } = getPluginContext();
             const response = await client.sync({
@@ -110,11 +113,14 @@ module.exports.bootstrap = async ({ getPluginContext, options, refresh, setPlugi
                 return;
             }
 
+            console.log('[sourcebit-source-contentful] Refresh.');
+
             // Handling deleted assets.
             response.deletedAssets.forEach((asset) => {
                 const index = assets.findIndex(({ sys }) => sys.id === asset.sys.id);
 
                 if (index !== -1) {
+                    console.log('[sourcebit-source-contentful] Deleted Asset:', assets[index]);
                     assets[index] = null;
                 }
             });
@@ -125,8 +131,10 @@ module.exports.bootstrap = async ({ getPluginContext, options, refresh, setPlugi
 
                 if (index === -1) {
                     assets.push(asset);
+                    console.log('[sourcebit-source-contentful] Add Asset at:', assets.length, inspect(asset));
                 } else {
                     assets[index] = asset;
+                    console.log('[sourcebit-source-contentful] Update Asset at:', index, inspect(asset));
                 }
             });
 
@@ -135,6 +143,7 @@ module.exports.bootstrap = async ({ getPluginContext, options, refresh, setPlugi
                 const index = entries.findIndex(({ sys }) => sys.id === entry.sys.id);
 
                 if (index !== -1) {
+                    console.log('[sourcebit-source-contentful] Deleted Entry at:', index, entries[index]);
                     entries[index] = null;
                 }
             });
@@ -145,8 +154,10 @@ module.exports.bootstrap = async ({ getPluginContext, options, refresh, setPlugi
 
                 if (index === -1) {
                     entries.push(entry);
+                    console.log('[sourcebit-source-contentful] Add Entry at:', entries.length, inspect(entry));
                 } else {
                     entries[index] = entry;
+                    console.log('[sourcebit-source-contentful] Update Entry at:', index, inspect(entry));
                 }
             });
 
@@ -162,6 +173,8 @@ module.exports.bootstrap = async ({ getPluginContext, options, refresh, setPlugi
 };
 
 module.exports.transform = ({ data, getPluginContext, options }) => {
+    console.log('[sourcebit-source-contentful] Starting transform.');
+
     const { entries = [], assets, contentTypes = [], locales = [] } = getPluginContext();
     const defaultLocale = getDefaultLocale(locales);
     const entriesWithResolvedLinks = entries.map((entry) => resolveLinksInEntry(entry, entries, assets, defaultLocale.code));
@@ -180,10 +193,13 @@ module.exports.transform = ({ data, getPluginContext, options }) => {
         fieldNames: contentType.fields.map((field) => field.id)
     }));
 
+    const objects = data.objects.concat(normalizedEntries);
+    console.assert(objects.filter(Boolean).length === objects.length, 'Invalid entries detected.');
+
     return {
         ...data,
         models: data.models.concat(models),
-        objects: data.objects.concat(normalizedEntries)
+        objects
     };
 };
 
