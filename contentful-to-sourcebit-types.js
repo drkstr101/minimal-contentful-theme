@@ -20,5 +20,7 @@ export interface Metadata {
 
 types = types.replace(/export interface I(\S+)Fields {/g, 'export interface I$1 extends Metadata {');
 types = types.replace(/export interface I(\S+) extends Entry<I(\S+)> {[\s\S]+?\n}\n/g, '');
+// TODO we should use something like ts-morph to safely transform types
+types = types.replace(/Asset \| undefined/g, 'string | undefined');
 
 fs.writeFileSync(path.join(__dirname, 'types/sourcebit.ts'), types);

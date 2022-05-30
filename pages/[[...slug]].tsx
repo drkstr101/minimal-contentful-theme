@@ -19,6 +19,7 @@ export const FlexiblePage = ({ page, site }: FlexiblePageProps) => {
         <div className="page">
             <Head>
                 <title>{page.title}</title>
+                {site.favicon && <link rel="icon" href={site.favicon} type="image/svg+xml"></link>}
             </Head>
             <div {...toObjectId(page?.__metadata?.id)}>
                 {page.sections?.length > 0 && (

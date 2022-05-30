@@ -63,6 +63,7 @@ describe('minimal-contentful-theme', () => {
         // TODO use `__metadata.modelName` rather than including a special `type` field
         expect(deepOmit(site, '__metadata')).toEqual({
             title: 'Stackbit',
+            favicon: 'https://images.ctfassets.net/khn91m4fbfli/gMpBfZEz4MPnENXHJJgqh/84ddf17db5dd7a013362dcf970af4242/favicon.svg',
             footer: {
                 body: 'Made by [Stackbit](https://www.stackbit.com/)\n'
             }

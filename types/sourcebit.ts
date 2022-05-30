@@ -22,6 +22,7 @@ export interface IButton extends Metadata {
     theme: 'primary' | 'secondary';
 }
 
+
 export interface ICard extends Metadata {
     /** Heading */
     heading: string;
@@ -32,6 +33,7 @@ export interface ICard extends Metadata {
     /** URL */
     url?: string | undefined;
 }
+
 
 export interface ICardGridSection extends Metadata {
     /** Heading */
@@ -44,10 +46,12 @@ export interface ICardGridSection extends Metadata {
     cards: ICard[];
 }
 
+
 export interface IFooterConfig extends Metadata {
     /** Body */
     body: string;
 }
+
 
 export interface IHeroSection extends Metadata {
     /** Heading */
@@ -59,6 +63,7 @@ export interface IHeroSection extends Metadata {
     /** Buttons */
     buttons: IButton[];
 }
+
 
 export interface IPage extends Metadata {
     /** Slug */
@@ -74,13 +79,18 @@ export interface IPage extends Metadata {
     sections: (ICardGridSection | IHeroSection)[];
 }
 
+
 export interface ISiteConfig extends Metadata {
     /** Title */
     title: string;
 
+    /** Favicon */
+    favicon?: string | undefined;
+
     /** Footer */
     footer: IFooterConfig;
 }
+
 
 export type CONTENT_TYPE = 'Button' | 'Card' | 'CardGridSection' | 'FooterConfig' | 'HeroSection' | 'Page' | 'SiteConfig';
 
