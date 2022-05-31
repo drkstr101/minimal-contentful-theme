@@ -167,14 +167,14 @@ exports[`minimal-contentful-theme FlexiblePage 1`] = `
     </div>
     <footer
       class="footer outer"
-      data-sb-field-path="content/data/config.json:footer"
+      data-sb-object-id="5UfKY85yTFfC9Yyiq7u0D2"
     >
       <div
         class="footer-container inner"
       >
         <p
           class="footer-content"
-          data-sb-field-path=".body"
+          data-sb-field-path="body"
         >
           Made by 
           <a

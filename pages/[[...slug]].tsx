@@ -30,7 +30,7 @@ export const FlexiblePage = ({ page, site }: FlexiblePageProps) => {
                     </div>
                 )}
             </div>
-            <Footer {...site.footer} />
+            <Footer {...site} />
         </div>
     );
 };

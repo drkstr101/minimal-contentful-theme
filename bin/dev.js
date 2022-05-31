@@ -14,7 +14,7 @@ if (!managementToken || !previewKey || !spaceId) {
     process.exit(1);
 }
 
-const command = `npm run stackbit dev --cms=contentful --contentful-access-token=${managementToken} --contentful-preview-key=${previewKey} --contentful-space-id=${spaceId}`;
+const command = `node_modules/.bin/stackbit dev --cms=contentful --contentful-access-token=${managementToken} --contentful-preview-token=${previewKey} --contentful-space-id=${spaceId}`;
 
 const devProcess = exec(command, (err) => {
     console.error(`Failed to execute ${command}`, err);
