@@ -84,6 +84,9 @@ export interface ISiteConfig extends Metadata {
     /** Title */
     title: string;
 
+    /** Favicon */
+    favicon?: string | null;
+
     /** Footer */
     footer: IFooterConfig;
 }

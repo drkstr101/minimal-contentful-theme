@@ -599,7 +599,7 @@
         "id": "SiteConfig",
         "type": "ContentType",
         "createdAt": "2022-05-28T02:00:57.339Z",
-        "updatedAt": "2022-05-28T02:00:57.828Z",
+        "updatedAt": "2022-05-30T17:08:10.306Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -607,8 +607,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 1,
-        "publishedAt": "2022-05-28T02:00:57.828Z",
+        "publishedVersion": 3,
+        "publishedAt": "2022-05-30T17:08:10.306Z",
         "firstPublishedAt": "2022-05-28T02:00:57.828Z",
         "createdBy": {
           "sys": {
@@ -624,8 +624,8 @@
             "id": "2M8nCPDfi0npsWVPhtMhn6"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 2,
+        "version": 4,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -648,6 +648,18 @@
           ],
           "disabled": false,
           "omitted": false
+        },
+        {
+          "id": "favicon",
+          "name": "Favicon",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
         },
         {
           "id": "footer",
@@ -1044,7 +1056,7 @@
             "linkType": "Space"
           }
         },
-        "version": 2,
+        "version": 4,
         "createdAt": "2022-05-28T02:00:57.877Z",
         "createdBy": {
           "sys": {
@@ -1053,7 +1065,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-05-28T02:00:58.442Z",
+        "updatedAt": "2022-05-30T17:08:10.939Z",
         "updatedBy": {
           "sys": {
             "id": "2M8nCPDfi0npsWVPhtMhn6",
@@ -1083,6 +1095,11 @@
           "widgetNamespace": "builtin"
         },
         {
+          "fieldId": "favicon",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
           "fieldId": "footer",
           "widgetId": "entryLinkEditor",
           "widgetNamespace": "builtin"
@@ -1107,7 +1124,7 @@
         "id": "1yMZFpX7gMCNGPRxe33cKr",
         "type": "Entry",
         "createdAt": "2022-05-28T02:16:09.559Z",
-        "updatedAt": "2022-05-28T02:17:08.287Z",
+        "updatedAt": "2022-05-30T17:53:10.637Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -1115,8 +1132,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2022-05-28T02:17:08.287Z",
+        "publishedVersion": 10,
+        "publishedAt": "2022-05-30T17:53:10.637Z",
         "firstPublishedAt": "2022-05-28T02:17:08.287Z",
         "createdBy": {
           "sys": {
@@ -1132,8 +1149,8 @@
             "id": "2M8nCPDfi0npsWVPhtMhn6"
           }
         },
-        "publishedCounter": 1,
-        "version": 4,
+        "publishedCounter": 5,
+        "version": 11,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1152,6 +1169,15 @@
       "fields": {
         "title": {
           "en-US": "Stackbit"
+        },
+        "favicon": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "5id5VasXXDVtN67zMD2QSN"
+            }
+          }
         },
         "footer": {
           "en-US": {
@@ -1244,7 +1270,7 @@
         "id": "3lmADqxm2MOrKUlM9pNL3t",
         "type": "Entry",
         "createdAt": "2022-05-28T02:20:09.905Z",
-        "updatedAt": "2022-05-28T02:27:25.405Z",
+        "updatedAt": "2022-05-29T01:07:32.553Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -1252,8 +1278,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 6,
-        "publishedAt": "2022-05-28T02:27:25.405Z",
+        "publishedVersion": 21,
+        "publishedAt": "2022-05-29T01:07:32.553Z",
         "firstPublishedAt": "2022-05-28T02:20:38.884Z",
         "createdBy": {
           "sys": {
@@ -1269,8 +1295,8 @@
             "id": "2M8nCPDfi0npsWVPhtMhn6"
           }
         },
-        "publishedCounter": 2,
-        "version": 7,
+        "publishedCounter": 7,
+        "version": 22,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1922,6 +1948,77 @@
     }
   ],
   "assets": [
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "khn91m4fbfli"
+          }
+        },
+        "id": "5id5VasXXDVtN67zMD2QSN",
+        "type": "Asset",
+        "createdAt": "2022-05-30T17:51:19.913Z",
+        "updatedAt": "2022-05-30T17:57:01.846Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2022-05-30T17:57:01.846Z",
+        "firstPublishedAt": "2022-05-30T17:57:01.846Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2M8nCPDfi0npsWVPhtMhn6"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2M8nCPDfi0npsWVPhtMhn6"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2M8nCPDfi0npsWVPhtMhn6"
+          }
+        }
+      },
+      "fields": {
+        "title": {
+          "en-US": "favicon"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/khn91m4fbfli/5id5VasXXDVtN67zMD2QSN/87a02f7ab69933e39cb768926a62f215/favicon.svg",
+            "details": {
+              "size": 686,
+              "image": {
+                "width": 40,
+                "height": 40
+              }
+            },
+            "fileName": "favicon.svg",
+            "contentType": "image/svg+xml"
+          }
+        }
+      }
+    }
   ],
   "locales": [
     {

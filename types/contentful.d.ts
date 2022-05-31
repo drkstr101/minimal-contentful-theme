@@ -172,6 +172,9 @@ export interface ISiteConfigFields {
     /** Title */
     title: string;
 
+    /** Favicon */
+    favicon?: Asset | undefined;
+
     /** Footer */
     footer: IFooterConfig;
 }

@@ -20,5 +20,6 @@ export interface Metadata {
 
 types = types.replace(/export interface I(\S+)Fields {/g, 'export interface I$1 extends Metadata {');
 types = types.replace(/export interface I(\S+) extends Entry<I(\S+)> {[\s\S]+?\n}\n/g, '');
+types = types.replace(/Asset \| undefined/g, 'string | null');
 
 fs.writeFileSync(path.join(__dirname, 'types/sourcebit.ts'), types);
