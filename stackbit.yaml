@@ -8,7 +8,7 @@ nodeVersion: '16'
 
 # The "buildCommand" and the "publishDir" properties are used to configure the
 # serverless deployment platform when Stackbit creates a new site from this theme.
-buildCommand: yarn build
+buildCommand: npm run build
 publishDir: .next
 
 # The "import" object defines how Stackbit should provision Contentful when
