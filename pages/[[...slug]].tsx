@@ -38,7 +38,7 @@ export const FlexiblePage = ({ page, site }: FlexiblePageProps) => {
 export async function getStaticProps({ params }) {
     const pagePath = typeof params?.slug === 'string' ? params?.slug : '/' + (params?.slug || []).join('/');
     const props = await sourcebitDataClient.getStaticPropsForPageAtPath(pagePath);
-    return { props };
+    return { props, revalidate: 60 };
 }
 
 export async function getStaticPaths() {
