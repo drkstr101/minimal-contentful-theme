@@ -32,7 +32,7 @@ module.exports = {
                 spaceId: process.env['CONTENTFUL_SPACE_ID'],
                 environment: process.env['CONTENTFUL_ENVIRONMENT'] || 'master',
                 preview: isDev,
-                watch: true,
+                watch: isDev,
                 host: isDev ? 'preview.contentful.com' : undefined
             }
         },
