@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import { resolve } from 'path';
+import sourcebit from 'sourcebit';
 
 import { DynamicComponent } from '../components/DynamicComponent';
 import { Footer } from '../components/Footer';
@@ -6,7 +8,7 @@ import { Footer } from '../components/Footer';
 import { sourcebitDataClient } from 'sourcebit-target-next';
 import { toObjectId, toFieldPath } from '@stackbit/annotations';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
-import { IPage, ISiteConfig } from '../types/sourcebit';
+import { IPage, ISiteConfig, Metadata } from '../types/sourcebit';
 
 export interface FlexiblePageProps {
     page: IPage;
@@ -14,12 +16,12 @@ export interface FlexiblePageProps {
 }
 
 export const FlexiblePage = ({ page, site }: FlexiblePageProps) => {
-    // console.log({ page, site });
+    console.log({ page, site });
     return (
         <div className="page">
             <Head>
                 <title>{page.title}</title>
-                {site.favicon && <link rel="icon" href={site.favicon} type="image/svg+xml" />}
+                {site.favicon && <link rel="icon" href={site.favicon.url} type="image/svg+xml" />}
             </Head>
             <div {...toObjectId(page?.__metadata?.id)}>
                 {page.sections?.length > 0 && (
@@ -35,10 +37,20 @@ export const FlexiblePage = ({ page, site }: FlexiblePageProps) => {
     );
 };
 
-export async function getStaticProps({ params }) {
-    const pagePath = typeof params?.slug === 'string' ? params?.slug : '/' + (params?.slug || []).join('/');
-    const props = await sourcebitDataClient.getStaticPropsForPageAtPath(pagePath);
-    return { props, revalidate: 60 };
+export async function getStaticProps({ params, preview = false }) {
+    const pagePath = typeof params?.slug === 'string' ? params.slug : '/' + (params?.slug || []).join('/');
+    let objects: any[] = [];
+    if (preview) {
+        // if preview is enabled then fetch on every request
+        const sourcebitConfig = await import('../sourcebit.js');
+        objects = await sourcebit.fetch(sourcebitConfig).then((data) => data.objects);
+    } else {
+        objects = await sourcebitDataClient.getData().then((data) => data.objects);
+    }
+
+    const page = objects.find((obj) => obj.__metadata.modelName === 'Page' && obj.slug === '/') ?? null;
+    const site = objects.find((obj) => obj.__metadata.modelName === 'SiteConfig') ?? null;
+    return { props: { site, page } };
 }
 
 export async function getStaticPaths() {
