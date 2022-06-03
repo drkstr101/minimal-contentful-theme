@@ -96,18 +96,18 @@ What is the difference between the `contentModels` (documented) and `models` (un
 
 ```yml
 contentModels:
-    Page:
-        isPage: true
-        urlPath: '/{slug}'
+  Page:
+    isPage: true
+    urlPath: '/{slug}'
 ```
 
 vs
 
 ```yml
 models:
-    Page:
-        type: page
-        urlPath: '/{slug}'
+  Page:
+    type: page
+    urlPath: '/{slug}'
 ```
 
 The former only works with git, while the later only seems to work with api (EG contentful).
