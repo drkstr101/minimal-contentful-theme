@@ -1,4 +1,4 @@
-const withSourcebit = require('sourcebit').sourcebitNext();
+// const withSourcebit = require('sourcebit').sourcebitNext();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -10,4 +10,4 @@ const nextConfig = {
     experimental: { esmExternals: true }
 };
 
-module.exports = withSourcebit(nextConfig);
+module.exports = nextConfig;

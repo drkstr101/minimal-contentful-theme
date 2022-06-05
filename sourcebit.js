@@ -38,27 +38,10 @@ module.exports = {
         },
 
         {
-            module: require('sourcebit-target-next'),
+            module: require('./sourcebit-target-next/index.js'),
             options: {
                 flattenAssetUrls: false,
-                liveUpdate: isDev,
-                pages: function (objects, utils) {
-                    return objects.reduce((pages, page) => {
-                        if (page.__metadata.modelName === 'Page') {
-                            return pages.concat({
-                                path: '{slug}',
-                                page
-                            });
-                        }
-
-                        return pages;
-                    }, []);
-                },
-                commonProps: function (objects, utils) {
-                    return {
-                        site: objects.find((object) => object.__metadata.modelName === 'SiteConfig')
-                    };
-                }
+                liveUpdate: isDev
             }
         }
     ]
